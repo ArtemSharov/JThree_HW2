@@ -14,7 +14,7 @@ import java.net.Socket;
 
 public class ClientGUI extends JFrame implements ActionListener, Thread.UncaughtExceptionHandler, SocketThreadListener {
 
-    private static final int WIDTH = 600;
+    private static final int WIDTH = 800;
     private static final int HEIGHT = 300;
 
     private final JTextArea log = new JTextArea();
@@ -25,6 +25,8 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
     private final JTextField tfLogin = new JTextField("ivan");
     private final JPasswordField tfPassword = new JPasswordField("123");
     private final JButton btnLogin = new JButton("Login");
+    private final JTextField tfNewNickname = new JTextField("NewNickname");
+    private final JButton btnChangeNickname = new JButton("Change Nickname");
 
     private final JPanel panelBottom = new JPanel(new BorderLayout());
     private final JButton btnDisconnect = new JButton("<html><b>Disconnect</b></html>");
@@ -52,15 +54,19 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
         btnSend.addActionListener(this);
         tfMessage.addActionListener(this);
         btnLogin.addActionListener(this);
+        btnChangeNickname.addActionListener(this);
         btnDisconnect.addActionListener(this);
         panelBottom.setVisible(false);
 
         panelTop.add(tfIPAddress);
         panelTop.add(tfPort);
-        panelTop.add(cbAlwaysOnTop);
+
         panelTop.add(tfLogin);
         panelTop.add(tfPassword);
+        panelTop.add(cbAlwaysOnTop);
         panelTop.add(btnLogin);
+        panelTop.add(tfNewNickname);
+        panelTop.add(btnChangeNickname);
         panelBottom.add(btnDisconnect, BorderLayout.WEST);
         panelBottom.add(tfMessage, BorderLayout.CENTER);
         panelBottom.add(btnSend, BorderLayout.EAST);
