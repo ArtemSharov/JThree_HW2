@@ -25,6 +25,7 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
     private final JTextField tfLogin = new JTextField("ivan");
     private final JPasswordField tfPassword = new JPasswordField("123");
     private final JButton btnLogin = new JButton("Login");
+    private final JTextField tfNewNickname = new JTextField("NewNickname");
     private final JButton btnChangeNickname = new JButton("Change Nickname");
 
     private final JPanel panelBottom = new JPanel(new BorderLayout());
@@ -63,8 +64,9 @@ public class ClientGUI extends JFrame implements ActionListener, Thread.Uncaught
         panelTop.add(tfLogin);
         panelTop.add(tfPassword);
         panelTop.add(cbAlwaysOnTop);
-        panelTop.add(btnLogin, BorderLayout.EAST);
-        panelTop.add(btnChangeNickname, BorderLayout.WEST);
+        panelTop.add(btnLogin);
+        panelTop.add(tfNewNickname);
+        panelTop.add(btnChangeNickname);
         panelBottom.add(btnDisconnect, BorderLayout.WEST);
         panelBottom.add(tfMessage, BorderLayout.CENTER);
         panelBottom.add(btnSend, BorderLayout.EAST);
