@@ -23,10 +23,22 @@ public class SqlClient {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+
     }
 
     synchronized static String getNickname(String login, String password) {
         String query = String.format("select nickname from users where login='%s' and password='%s'", login, password);
+        try (ResultSet set = statement.executeQuery(query)) {
+            if (set.next())
+                return set.getString(1);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
+    }
+
+    synchronized static String setNickname(String login, String  password, String newLogin){
+        String query = String.format("update users set nickname = '%s' where login = '%s' and password = '%s'", newLogin, login, password);
         try (ResultSet set = statement.executeQuery(query)) {
             if (set.next())
                 return set.getString(1);
